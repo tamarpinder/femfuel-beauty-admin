@@ -1,4 +1,8 @@
 /** @type {import('tailwindcss').Config} */
+
+// Import shared FemFuel design system
+const sharedConfig = require('../tailwind.shared.js')
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -7,7 +11,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      // Merge shared design system
+      ...sharedConfig.theme.extend,
+      
       colors: {
+        // shadcn/ui color tokens
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -41,13 +49,6 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // FemFuel Brand Colors
-        'femfuel-rose': '#b91c5c',
-        'femfuel-gold': '#d4af37',
-        'femfuel-purple': '#f3e8ff',
-        'femfuel-dark': '#111827',
-        'femfuel-medium': '#4b5563',
-        'femfuel-light': '#f9fafb',
         sidebar: {
           DEFAULT: "hsl(var(--sidebar))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -58,12 +59,18 @@ module.exports = {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        
+        // Extend with FemFuel shared colors
+        ...sharedConfig.theme.extend.colors,
       },
+      
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      
+      // Add modern admin-specific animations
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -73,10 +80,38 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "slide-in": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        "slide-out": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        "pulse-subtle": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.8" },
+        },
+        "shimmer": {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        }
       },
+      
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "slide-in": "slide-in 0.3s ease-out",
+        "slide-out": "slide-out 0.3s ease-in",
+        "pulse-subtle": "pulse-subtle 2s ease-in-out infinite",
+        "shimmer": "shimmer 2s linear infinite",
+      },
+      
+      // Add modern shadows for admin interface
+      boxShadow: {
+        "admin-card": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+        "admin-card-hover": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+        "admin-sidebar": "4px 0 6px -1px rgb(0 0 0 / 0.1)",
       },
     },
   },

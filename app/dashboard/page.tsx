@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import {
   Users,
@@ -191,11 +192,21 @@ export default function DashboardPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
-        <h1 className="text-3xl font-bold text-femfuel-dark">Panel Principal</h1>
-        <p className="text-femfuel-medium mt-2">
-          Vista general de la plataforma FemFuel Beauty
-        </p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
+          <p className="text-muted-foreground mt-1">
+            Welcome back! Here's what's happening with FemFuel Beauty.
+          </p>
+        </div>
+        <div className="flex items-center gap-2">
+          <Button variant="outline" size="sm">
+            Export Data
+          </Button>
+          <Button size="sm">
+            View Reports
+          </Button>
+        </div>
       </div>
 
       {/* Metrics Grid */}
@@ -210,8 +221,8 @@ export default function DashboardPage() {
         {/* Revenue Chart */}
         <div className="lg:col-span-2">
           <ChartContainer 
-            title="Ingresos Mensuales"
-            description="Comisiones generadas por la plataforma"
+            title="Monthly Revenue"
+            description="Platform commission revenue over time"
           />
         </div>
 
