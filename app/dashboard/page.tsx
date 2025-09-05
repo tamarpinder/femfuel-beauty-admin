@@ -194,17 +194,17 @@ export default function DashboardPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
+          <h1 className="text-3xl font-bold text-foreground">Panel Principal</h1>
           <p className="text-muted-foreground mt-1">
-            Welcome back! Here's what's happening with FemFuel Beauty.
+            ¡Bienvenido de vuelta! Aquí tienes el resumen de FemFuel Beauty.
           </p>
         </div>
         <div className="flex items-center gap-2">
           <Button variant="outline" size="sm">
-            Export Data
+            Exportar Datos
           </Button>
           <Button size="sm">
-            View Reports
+            Ver Reportes
           </Button>
         </div>
       </div>
@@ -221,8 +221,8 @@ export default function DashboardPage() {
         {/* Revenue Chart */}
         <div className="lg:col-span-2">
           <ChartContainer 
-            title="Monthly Revenue"
-            description="Platform commission revenue over time"
+            title="Ingresos Mensuales"
+            description="Ingresos por comisiones de la plataforma"
           />
         </div>
 

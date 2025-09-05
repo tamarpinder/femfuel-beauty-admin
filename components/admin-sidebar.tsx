@@ -23,51 +23,51 @@ import { cn } from '@/lib/utils'
 
 const navigation = [
   {
-    name: 'Dashboard',
+    name: 'Panel Principal',
     href: '/dashboard',
     icon: LayoutDashboard
   },
   {
-    name: 'Users',
+    name: 'Gestión de Usuarios',
     icon: Users,
     children: [
-      { name: 'All Users', href: '/dashboard/users', icon: Users },
-      { name: 'Vendors', href: '/dashboard/users/vendors', icon: Building2 },
-      { name: 'Customers', href: '/dashboard/users/customers', icon: UserCheck }
+      { name: 'Todos los Usuarios', href: '/dashboard/users', icon: Users },
+      { name: 'Proveedores', href: '/dashboard/users/vendors', icon: Building2 },
+      { name: 'Clientes', href: '/dashboard/users/customers', icon: UserCheck }
     ]
   },
   {
-    name: 'Bookings',
+    name: 'Reservaciones',
     href: '/dashboard/bookings',
     icon: Calendar
   },
   {
-    name: 'Services',
+    name: 'Servicios',
     href: '/dashboard/services',
     icon: Store
   },
   {
-    name: 'Analytics',
+    name: 'Análisis',
     href: '/dashboard/analytics',
     icon: BarChart3
   },
   {
-    name: 'Revenue',
+    name: 'Ingresos',
     href: '/dashboard/revenue',
     icon: CreditCard
   },
   {
-    name: 'Reviews',
+    name: 'Reseñas',
     href: '/dashboard/reviews',
     icon: Star
   },
   {
-    name: 'Support',
+    name: 'Soporte',
     href: '/dashboard/support',
     icon: MessageSquare
   },
   {
-    name: 'Settings',
+    name: 'Configuración',
     href: '/dashboard/settings',
     icon: Settings
   }

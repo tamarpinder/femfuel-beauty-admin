@@ -102,18 +102,18 @@ export default function UsersPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">User Management</h1>
+          <h1 className="text-3xl font-bold text-foreground">Gestión de Usuarios</h1>
           <p className="text-muted-foreground mt-1">
-            Manage all users across the FemFuel Beauty platform
+            Administra todos los usuarios de la plataforma FemFuel Beauty
           </p>
         </div>
         <div className="flex items-center gap-2">
           <Button variant="outline" size="sm">
             <Mail className="w-4 h-4 mr-2" />
-            Send Notification
+            Enviar Notificación
           </Button>
           <Button size="sm">
-            Add User
+            Agregar Usuario
           </Button>
         </div>
       </div>
@@ -127,7 +127,7 @@ export default function UsersPage() {
                 <UsersIcon className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <p className="text-sm font-medium text-muted-foreground">Total Users</p>
+                <p className="text-sm font-medium text-muted-foreground">Total de Usuarios</p>
                 <p className="text-2xl font-bold text-foreground">{userStats.total}</p>
               </div>
             </div>
@@ -141,7 +141,7 @@ export default function UsersPage() {
                 <UserCheck className="w-5 h-5 text-red-600" />
               </div>
               <div>
-                <p className="text-sm font-medium text-muted-foreground">Admins</p>
+                <p className="text-sm font-medium text-muted-foreground">Administradores</p>
                 <p className="text-2xl font-bold text-foreground">{userStats.admins}</p>
               </div>
             </div>
@@ -155,7 +155,7 @@ export default function UsersPage() {
                 <UserCheck className="w-5 h-5 text-blue-600" />
               </div>
               <div>
-                <p className="text-sm font-medium text-muted-foreground">Vendors</p>
+                <p className="text-sm font-medium text-muted-foreground">Proveedores</p>
                 <p className="text-2xl font-bold text-foreground">{userStats.vendors}</p>
               </div>
             </div>
@@ -169,7 +169,7 @@ export default function UsersPage() {
                 <UsersIcon className="w-5 h-5 text-green-600" />
               </div>
               <div>
-                <p className="text-sm font-medium text-muted-foreground">Customers</p>
+                <p className="text-sm font-medium text-muted-foreground">Clientes</p>
                 <p className="text-2xl font-bold text-foreground">{userStats.customers}</p>
               </div>
             </div>
@@ -183,7 +183,7 @@ export default function UsersPage() {
                 <TrendingUp className="w-5 h-5 text-emerald-600" />
               </div>
               <div>
-                <p className="text-sm font-medium text-muted-foreground">Active</p>
+                <p className="text-sm font-medium text-muted-foreground">Activos</p>
                 <p className="text-2xl font-bold text-foreground">{userStats.active}</p>
               </div>
             </div>
@@ -194,7 +194,7 @@ export default function UsersPage() {
       {/* Filters and Search */}
       <Card className="admin-card">
         <CardHeader>
-          <CardTitle className="text-lg font-semibold">Users</CardTitle>
+          <CardTitle className="text-lg font-semibold">Usuarios</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col sm:flex-row gap-4 mb-6">
@@ -202,7 +202,7 @@ export default function UsersPage() {
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
-                placeholder="Search users by name or email..."
+                placeholder="Buscar usuarios por nombre o correo..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-9"
@@ -215,14 +215,14 @@ export default function UsersPage() {
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline" size="sm">
                     <Filter className="w-4 h-4 mr-2" />
-                    Role: {userFilter === 'all' ? 'All' : userFilter}
+                    Role: {userFilter === 'all' ? 'Todos' : userFilter === 'vendor' ? 'Proveedor' : userFilter === 'customer' ? 'Cliente' : userFilter}
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  <DropdownMenuItem onClick={() => setUserFilter('all')}>All Roles</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setUserFilter('all')}>Todos los Roles</DropdownMenuItem>
                   <DropdownMenuItem onClick={() => setUserFilter('admin')}>Admin</DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setUserFilter('vendor')}>Vendor</DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setUserFilter('customer')}>Customer</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setUserFilter('vendor')}>Proveedor</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setUserFilter('customer')}>Cliente</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
 
@@ -230,14 +230,14 @@ export default function UsersPage() {
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline" size="sm">
                     <Filter className="w-4 h-4 mr-2" />
-                    Status: {statusFilter === 'all' ? 'All' : statusFilter}
+                    Estado: {statusFilter === 'all' ? 'Todos' : statusFilter === 'active' ? 'Activo' : statusFilter === 'inactive' ? 'Inactivo' : statusFilter === 'suspended' ? 'Suspendido' : statusFilter}
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  <DropdownMenuItem onClick={() => setStatusFilter('all')}>All Status</DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setStatusFilter('active')}>Active</DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setStatusFilter('inactive')}>Inactive</DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setStatusFilter('suspended')}>Suspended</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setStatusFilter('all')}>Todos los Estados</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setStatusFilter('active')}>Activo</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setStatusFilter('inactive')}>Inactivo</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setStatusFilter('suspended')}>Suspendido</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
@@ -248,19 +248,19 @@ export default function UsersPage() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>User</TableHead>
-                  <TableHead>Role</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Contact</TableHead>
-                  <TableHead>Joined</TableHead>
-                  <TableHead className="text-right">Actions</TableHead>
+                  <TableHead>Usuario</TableHead>
+                  <TableHead>Rol</TableHead>
+                  <TableHead>Estado</TableHead>
+                  <TableHead>Contacto</TableHead>
+                  <TableHead>Registro</TableHead>
+                  <TableHead className="text-right">Acciones</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {filteredUsers.length === 0 ? (
                   <TableRow>
                     <TableCell colSpan={6} className="text-center py-8 text-muted-foreground">
-                      No users found matching your search criteria.
+                      No se encontraron usuarios que coincidan con los criterios de búsqueda.
                     </TableCell>
                   </TableRow>
                 ) : (
@@ -313,24 +313,24 @@ export default function UsersPage() {
                           </DropdownMenuTrigger>
                           <DropdownMenuContent align="end">
                             <DropdownMenuItem onClick={() => handleUserAction(user.id, 'view')}>
-                              View Details
+                              Ver Detalles
                             </DropdownMenuItem>
                             <DropdownMenuItem onClick={() => handleUserAction(user.id, 'edit')}>
-                              Edit User
+                              Editar Usuario
                             </DropdownMenuItem>
                             <DropdownMenuItem onClick={() => handleUserAction(user.id, 'message')}>
-                              Send Message
+                              Enviar Mensaje
                             </DropdownMenuItem>
                             {user.status === 'active' ? (
                               <DropdownMenuItem 
                                 onClick={() => handleUserAction(user.id, 'suspend')}
                                 className="text-destructive"
                               >
-                                Suspend User
+                                Suspender Usuario
                               </DropdownMenuItem>
                             ) : (
                               <DropdownMenuItem onClick={() => handleUserAction(user.id, 'activate')}>
-                                Activate User
+                                Activar Usuario
                               </DropdownMenuItem>
                             )}
                           </DropdownMenuContent>
@@ -345,10 +345,10 @@ export default function UsersPage() {
 
           {/* Pagination would go here */}
           <div className="mt-4 flex items-center justify-between text-sm text-muted-foreground">
-            <p>Showing {filteredUsers.length} of {users.length} users</p>
+            <p>Mostrando {filteredUsers.length} de {users.length} usuarios</p>
             <div className="flex items-center gap-2">
-              <Button variant="outline" size="sm" disabled>Previous</Button>
-              <Button variant="outline" size="sm" disabled>Next</Button>
+              <Button variant="outline" size="sm" disabled>Anterior</Button>
+              <Button variant="outline" size="sm" disabled>Siguiente</Button>
             </div>
           </div>
         </CardContent>
