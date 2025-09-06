@@ -83,25 +83,25 @@ export default function LoginPage() {
                 className="w-[120px] h-[120px] mx-auto lg:mx-0 mb-4"
               />
               <h1 className="text-3xl lg:text-4xl font-bold mb-4">
-                Panel de Administración
+                Centro de Control Administrativo
               </h1>
               <p className="text-lg opacity-90 leading-relaxed">
-                Controla y gestiona toda la plataforma FemFuel desde un panel profesional y completo
+                Accede a herramientas administrativas avanzadas para gestionar la plataforma FemFuel
               </p>
             </div>
 
             <div className="space-y-4 text-sm opacity-80">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-white/60 rounded-full"></div>
-                <span>Gestión completa de usuarios y proveedores</span>
+                <span>Supervisión de usuarios y proveedores registrados</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-white/60 rounded-full"></div>
-                <span>Análisis avanzado y reportes detallados</span>
+                <span>Análisis detallados y reportes administrativos</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-white/60 rounded-full"></div>
-                <span>Control total de la plataforma</span>
+                <span>Control completo de configuraciones y seguridad</span>
               </div>
             </div>
           </div>
