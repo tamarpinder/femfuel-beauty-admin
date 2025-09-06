@@ -71,19 +71,10 @@ export default function LoginPage() {
       
       <div className="relative flex flex-col lg:flex-row min-h-screen">
         {/* Left Side - Admin Branding */}
-        <div className="lg:w-1/2 bg-gradient-to-br from-femfuel-rose via-pink-600 to-femfuel-gold p-8 lg:p-12 flex items-center justify-center relative overflow-hidden">
+        <div className="lg:w-1/2 bg-gradient-to-br from-femfuel-rose via-pink-600 to-femfuel-gold p-8 lg:p-12 flex items-start justify-center relative overflow-hidden pt-[30vh]">
           <div className="absolute inset-0 bg-black/10"></div>
           <div className="relative z-10 text-white text-center lg:text-left max-w-md">
             <div className="text-center lg:text-left">
-              <div className="mb-6">
-                <Image 
-                  src="/femfuel-logo.png" 
-                  alt="FemFuel Beauty" 
-                  width={120}
-                  height={120}
-                  className="w-[120px] h-[120px] mx-auto lg:mx-0"
-                />
-              </div>
               <h1 className="text-3xl lg:text-4xl font-bold mb-4">
                 Centro de Control Administrativo
               </h1>
