@@ -8,18 +8,51 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        femfuel: {
-          50: '#fdf2f8',
-          100: '#fce7f3',
-          200: '#fbcfe8',
-          300: '#f9a8d4',
-          400: '#f472b6',
-          500: '#ec4899',
-          600: '#db2777',
-          700: '#be185d',
-          800: '#9d174d',
-          900: '#831843',
+        // shadcn/ui color tokens
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        
+        // FemFuel Beauty color scheme
+        'femfuel-rose': '#b91c5c',
+        'femfuel-gold': '#d4af37',
+        'femfuel-purple': '#f3e8ff',
+        'femfuel-dark': '#111827',
+        'femfuel-medium': '#4b5563',
+        'femfuel-light': '#f9fafb',
+      },
+      fontFamily: {
+        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
     },
   },
