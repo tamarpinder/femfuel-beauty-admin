@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Mail, Lock, Eye, EyeOff, Shield, Star, Users, TrendingUp } from 'lucide-react'
+import { Mail, Lock, Eye, EyeOff, Shield, Star, Users, TrendingUp, BarChart3, Settings } from 'lucide-react'
 import { adminAuth } from '@/lib/supabase'
 
 export default function AdminLoginPage() {
@@ -48,168 +48,210 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="grid lg:grid-cols-2 min-h-screen">
-        {/* Left Side - FemFuel Beauty Branding */}
-        <div className="hidden lg:flex flex-col justify-center px-8 bg-primary">
-          <div className="max-w-md mx-auto text-center">
-            {/* FemFuel Logo */}
-            <div className="w-32 h-32 mx-auto mb-8 flex items-center justify-center">
-              <div className="w-full h-full bg-white rounded-2xl flex items-center justify-center shadow-xl">
-                <div className="text-4xl font-bold text-primary">F</div>
+    <div className="min-h-screen bg-gradient-to-br from-femfuel-rose/5 via-white to-femfuel-gold/5 relative">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.02]"></div>
+      
+      <div className="relative flex flex-col lg:flex-row min-h-screen">
+        {/* Left Side - Professional Admin Branding */}
+        <div className="lg:w-1/2 bg-gradient-to-br from-femfuel-rose via-pink-600 to-femfuel-gold p-8 lg:p-12 flex items-center justify-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-black/10"></div>
+          <div className="relative z-10 text-white text-center lg:text-left max-w-md">
+            <div className="mb-8">
+              <Image 
+                src="/femfuel-logo.png" 
+                alt="FemFuel Beauty" 
+                width={80}
+                height={80}
+                className="w-20 h-20 mx-auto lg:mx-0 mb-4"
+              />
+              <h1 className="text-3xl lg:text-4xl font-bold mb-4">
+                FemFuel Beauty
+              </h1>
+              <p className="text-xl opacity-90 leading-relaxed mb-2">
+                Panel de Administración
+              </p>
+              <p className="text-lg opacity-75 leading-relaxed">
+                Plataforma de gestión empresarial para la belleza dominicana
+              </p>
+            </div>
+
+            {/* Admin Features */}
+            <div className="space-y-4 text-sm opacity-80 mb-8">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                  <Users className="w-4 h-4 text-white" />
+                </div>
+                <span>Gestión completa de usuarios y proveedores</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                  <BarChart3 className="w-4 h-4 text-white" />
+                </div>
+                <span>Análisis avanzado y reportes en tiempo real</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                  <Settings className="w-4 h-4 text-white" />
+                </div>
+                <span>Control total de la plataforma</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                  <Shield className="w-4 h-4 text-white" />
+                </div>
+                <span>Seguridad empresarial de nivel superior</span>
               </div>
             </div>
-            
-            <h1 className="text-4xl font-bold text-white mb-4">
-              FemFuel Beauty
-            </h1>
-            <p className="text-xl text-primary-foreground/90 mb-8">
-              Administración Empresarial
-            </p>
-            
-            {/* Statistics */}
-            <div className="grid grid-cols-3 gap-6 mb-8">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
+
+            {/* Platform Stats */}
+            <div className="grid grid-cols-3 gap-4 text-center">
+              <div>
                 <div className="text-2xl font-bold text-white">500+</div>
-                <div className="text-sm text-primary-foreground/80">Usuarios</div>
+                <div className="text-xs text-primary-foreground/70">Usuarios</div>
               </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <TrendingUp className="w-6 h-6 text-white" />
-                </div>
+              <div>
                 <div className="text-2xl font-bold text-white">95%</div>
-                <div className="text-sm text-primary-foreground/80">Satisfacción</div>
+                <div className="text-xs text-primary-foreground/70">Satisfacción</div>
               </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <Star className="w-6 h-6 text-white" />
-                </div>
+              <div>
                 <div className="text-2xl font-bold text-white">4.9</div>
-                <div className="text-sm text-primary-foreground/80">Rating</div>
+                <div className="text-xs text-primary-foreground/70">Rating</div>
               </div>
-            </div>
-            
-            <div className="text-primary-foreground/80">
-              "Transformamos la belleza dominicana con tecnología de clase mundial"
             </div>
           </div>
         </div>
 
         {/* Right Side - Login Form */}
-        <div className="flex flex-col justify-center px-6 py-12 lg:px-8">
-          <div className="sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="lg:w-1/2 flex items-center justify-center p-8 lg:p-12">
+          <div className="w-full max-w-md">
             {/* Mobile Logo */}
             <div className="lg:hidden text-center mb-8">
-              <div className="w-20 h-20 mx-auto mb-4 bg-primary rounded-xl flex items-center justify-center">
-                <div className="text-2xl font-bold text-white">F</div>
-              </div>
-              <h1 className="text-2xl font-bold text-foreground">FemFuel Beauty</h1>
-              <p className="text-muted-foreground">Panel Administrativo</p>
+              <Image 
+                src="/femfuel-logo.png" 
+                alt="FemFuel Beauty" 
+                width={60}
+                height={60}
+                className="w-15 h-15 mx-auto mb-4"
+              />
+              <h1 className="text-2xl font-bold text-femfuel-dark">FemFuel Beauty</h1>
+              <p className="text-femfuel-medium">Panel Administrativo</p>
             </div>
             
-            <div className="bg-card p-8 shadow-admin-card rounded-lg border">
-              <div className="mb-8">
-                <h2 className="text-2xl font-bold text-foreground mb-2">
-                  Bienvenido de vuelta
-                </h2>
-                <p className="text-muted-foreground">
-                  Inicia sesión para acceder al panel de administración
-                </p>
+            {/* Form Header with Logo */}
+            <div className="hidden lg:block mb-8 text-center">
+              <div className="mb-6">
+                <Image 
+                  src="/femfuel-logo.png" 
+                  alt="FemFuel Beauty" 
+                  width={100}
+                  height={100}
+                  className="w-[100px] h-[100px] mx-auto hover:scale-105 transition-transform duration-300"
+                />
               </div>
+              <h2 className="text-3xl font-bold text-femfuel-dark mb-2">
+                Acceso Administrativo
+              </h2>
+              <p className="text-femfuel-medium">
+                Inicia sesión para acceder al centro de control
+              </p>
+            </div>
 
-              {/* Error Message */}
-              {error && (
-                <div className="mb-6 p-4 bg-destructive/10 border border-destructive/20 text-destructive rounded-lg text-sm">
-                  {error}
-                </div>
-              )}
+            {/* Error Message */}
+            {error && (
+              <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm">
+                {error}
+              </div>
+            )}
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-sm font-medium text-foreground">
-                    Correo electrónico administrativo
-                  </Label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="admin@femfuelbeauty.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="pl-10 h-11"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="password" className="text-sm font-medium text-foreground">
-                    Contraseña
-                  </Label>
-                  <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                    <Input
-                      id="password"
-                      type={showPassword ? 'text' : 'password'}
-                      placeholder="Ingresa tu contraseña"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      className="pl-10 pr-10 h-11"
-                      required
-                    />
-                    <button
-                      type="button"
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                      onClick={() => setShowPassword(!showPassword)}
-                    >
-                      {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                    </button>
-                  </div>
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full h-11"
-                  disabled={isLoading}
-                >
-                  {isLoading ? (
-                    <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin"></div>
-                      Verificando credenciales...
-                    </div>
-                  ) : (
-                    <>
-                      <Shield className="w-4 h-4 mr-2" />
-                      Iniciar sesión
-                    </>
-                  )}
-                </Button>
-              </form>
-
-              {/* Security Notice */}
-              <div className="mt-6 p-4 bg-muted rounded-lg">
-                <div className="flex items-start gap-3">
-                  <Shield className="h-5 w-5 text-muted-foreground mt-0.5 flex-shrink-0" />
-                  <div className="text-sm text-muted-foreground">
-                    <p className="font-medium mb-1">Acceso seguro</p>
-                    <p>Solo personal autorizado puede acceder al sistema de administración.</p>
-                  </div>
+            {/* Admin Access Form */}
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-2">
+                <Label htmlFor="email" className="text-femfuel-dark font-medium">
+                  Correo Electrónico Administrativo
+                </Label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="admin@femfuelbeauty.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="pl-10 h-12 border-gray-200 focus:border-femfuel-rose focus:ring-femfuel-rose"
+                    required
+                  />
                 </div>
               </div>
 
-              {/* Footer */}
-              <div className="mt-8 pt-6 border-t border-border">
-                <p className="text-center text-sm text-muted-foreground">
-                  © 2025 FemFuel Beauty • República Dominicana
-                </p>
-                <p className="text-center text-xs text-muted-foreground mt-1">
-                  Plataforma líder en servicios de belleza dominicana
-                </p>
+              <div className="space-y-2">
+                <Label htmlFor="password" className="text-femfuel-dark font-medium">
+                  Contraseña Administrativa
+                </Label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                  <Input
+                    id="password"
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder="••••••••••••"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="pl-10 pr-10 h-12 border-gray-200 focus:border-femfuel-rose focus:ring-femfuel-rose"
+                    required
+                  />
+                  <button
+                    type="button"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  </button>
+                </div>
               </div>
+
+              <Button
+                type="submit"
+                className="w-full h-12 bg-femfuel-rose hover:bg-[#9f1853] text-white font-medium"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Verificando Acceso...
+                  </div>
+                ) : (
+                  <>
+                    <Shield className="w-4 h-4 mr-2" />
+                    Acceder al Panel
+                  </>
+                )}
+              </Button>
+            </form>
+
+            {/* Security Notice */}
+            <div className="mt-8 p-4 bg-orange-50 border border-orange-200 rounded-lg">
+              <div className="flex items-start gap-3">
+                <Shield className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                <div className="flex-1">
+                  <h3 className="text-sm font-medium text-orange-900 mb-1">
+                    Acceso Restringido
+                  </h3>
+                  <p className="text-sm text-orange-700">
+                    Solo administradores autorizados de FemFuel Beauty pueden acceder a este panel de control. 
+                    Todas las actividades son monitoreadas por seguridad.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="mt-8 text-center space-y-2">
+              <p className="text-sm text-femfuel-medium">
+                © 2025 FemFuel Beauty • República Dominicana
+              </p>
+              <p className="text-xs text-femfuel-medium/70">
+                "Transformamos la belleza dominicana con tecnología de clase mundial"
+              </p>
             </div>
           </div>
         </div>
