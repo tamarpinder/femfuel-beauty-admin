@@ -41,6 +41,8 @@ export default function LoginPage() {
       setTimeout(() => {
         setIsLoading(false);
         console.log('Admin login attempt:', { email, password });
+        // Redirect to dashboard on successful login
+        window.location.href = '/dashboard';
       }, 1000);
     } catch (error: unknown) {
       if (error instanceof Error) {
