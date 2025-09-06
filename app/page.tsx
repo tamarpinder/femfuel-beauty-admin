@@ -206,7 +206,7 @@ export default function LoginPage() {
               </div>
             </div>
 
-            {/* Demo Admin Credentials Notice */}
+            {/* Demo Vendor Credentials Notice */}
             <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
               <div className="flex items-start gap-3">
                 <Info className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
