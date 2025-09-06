@@ -1,17 +1,9 @@
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-
-const inter = Inter({ 
-  subsets: ["latin"],
-  variable: "--font-inter" 
-})
+import './globals.css'
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "FemFuel Beauty - Panel de Administración",
-  description: "Panel de control administrativo para la plataforma FemFuel Beauty",
-  keywords: ["FemFuel", "Beauty", "Admin", "Dashboard", "República Dominicana"],
-  authors: [{ name: "FemFuel Beauty Team" }],
+  title: 'FemFuel Admin Panel',
+  description: 'Admin panel for FemFuel Beauty',
 }
 
 export default function RootLayout({
@@ -20,8 +12,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es-DO">
-      <body className={`${inter.variable} font-sans antialiased`}>
+    <html lang="es">
+      <body className="bg-gray-50 font-sans antialiased">
         {children}
       </body>
     </html>
