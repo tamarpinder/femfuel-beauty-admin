@@ -102,14 +102,38 @@
 }
 
 @layer utilities {
+  /* Professional Gradient Classes */
   .admin-gradient {
-    background: linear-gradient(135deg, hsl(var(--chart-1)) 0%, hsl(var(--chart-2)) 100%);
+    background: linear-gradient(135deg, #b91c5c 0%, #d4af37 100%);
   }
   
+  .femfuel-gradient {
+    background: linear-gradient(135deg, #b91c5c 0%, #ec4899 50%, #d4af37 100%);
+  }
+  
+  .femfuel-gradient-radial {
+    background: radial-gradient(ellipse at top left, #b91c5c, #ec4899, #d4af37);
+  }
+  
+  /* Glass Morphism Effects */
+  .glass-effect {
+    @apply backdrop-blur-xl bg-white/70 border border-white/20 shadow-xl;
+  }
+  
+  .glass-dark {
+    @apply backdrop-blur-xl bg-black/10 border border-white/10;
+  }
+  
+  /* Professional Card Styles */
   .admin-card {
     @apply bg-card border border-border rounded-lg shadow-admin-card hover:shadow-admin-card-hover transition-all duration-200;
   }
   
+  .admin-card-premium {
+    @apply bg-white/90 backdrop-blur-sm border border-gray-200/50 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300;
+  }
+  
+  /* Navigation Items */
   .admin-nav-item {
     @apply flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200;
   }
@@ -120,5 +144,43 @@
   
   .admin-nav-item[data-active="true"] {
     @apply bg-primary text-primary-foreground;
+  }
+  
+  /* Button Enhancements */
+  .btn-gradient {
+    @apply bg-gradient-to-r from-femfuel-rose to-pink-600 text-white font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200;
+  }
+  
+  /* Form Input Enhancements */
+  .input-premium {
+    @apply border-gray-200 bg-white/90 backdrop-blur-sm focus:border-femfuel-rose focus:ring-2 focus:ring-femfuel-rose/20 transition-all duration-200;
+  }
+  
+  /* Text Effects */
+  .text-gradient {
+    @apply bg-gradient-to-r from-femfuel-rose to-femfuel-gold bg-clip-text text-transparent;
+  }
+  
+  /* Animation Classes */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .glow-effect {
+    box-shadow: 0 0 30px rgba(185, 28, 92, 0.3);
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(185, 28, 92, 0.2); }
+    50% { box-shadow: 0 0 40px rgba(185, 28, 92, 0.4); }
   }
 }
