@@ -74,34 +74,36 @@ export default function LoginPage() {
         <div className="lg:w-1/2 bg-gradient-to-br from-femfuel-rose via-pink-600 to-femfuel-gold p-8 lg:p-12 flex items-center justify-center relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10"></div>
           <div className="relative z-10 text-white text-center lg:text-left max-w-md">
-            <div className="mb-8">
-              <Image 
-                src="/femfuel-logo.png" 
-                alt="FemFuel Beauty" 
-                width={120}
-                height={120}
-                className="w-[120px] h-[120px] mx-auto lg:mx-0 mb-4"
-              />
+            <div className="text-center lg:text-left">
+              <div className="mb-6">
+                <Image 
+                  src="/femfuel-logo.png" 
+                  alt="FemFuel Beauty" 
+                  width={120}
+                  height={120}
+                  className="w-[120px] h-[120px] mx-auto lg:mx-0"
+                />
+              </div>
               <h1 className="text-3xl lg:text-4xl font-bold mb-4">
                 Centro de Control Administrativo
               </h1>
-              <p className="text-lg opacity-90 leading-relaxed">
+              <p className="text-lg opacity-90 leading-relaxed mb-8">
                 Accede a herramientas administrativas avanzadas para gestionar la plataforma FemFuel
               </p>
-            </div>
-
-            <div className="space-y-4 text-sm opacity-80">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-white/60 rounded-full"></div>
-                <span>Supervisión de usuarios y proveedores registrados</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-white/60 rounded-full"></div>
-                <span>Análisis detallados y reportes administrativos</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-white/60 rounded-full"></div>
-                <span>Control completo de configuraciones y seguridad</span>
+            
+              <div className="space-y-4 text-sm opacity-80">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-white/60 rounded-full"></div>
+                  <span>Supervisión de usuarios y proveedores registrados</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-white/60 rounded-full"></div>
+                  <span>Análisis detallados y reportes administrativos</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-white/60 rounded-full"></div>
+                  <span>Control completo de configuraciones y seguridad</span>
+                </div>
               </div>
             </div>
           </div>
