@@ -10,19 +10,31 @@ import {
   TrendingUp, 
   UserPlus 
 } from 'lucide-react';
+import { mockData } from '@/data/shared/mock-data';
+
+// Calculate real stats from mock data
+const totalUsers = mockData.users.filter(u => u.role !== 'admin').length;
+const totalVendors = mockData.vendorProfiles.length;
+const totalCustomers = mockData.customerProfiles.length;
+const totalServices = mockData.services.length;
+const completedBookings = mockData.bookings.filter(b => b.status === 'completed');
+const totalRevenue = completedBookings.reduce((sum, booking) => sum + booking.totalAmount, 0);
+const pendingBookings = mockData.bookings.filter(b => b.status === 'pending').length;
+const popularServices = mockData.services.filter(s => s.isPopular).length;
+const recentUsers = mockData.users.filter(u => u.role === 'customer').slice(-5);
 
 const dashboardStats = [
   {
     title: 'Total Usuarios',
-    value: '2,543',
+    value: totalUsers.toLocaleString(),
     change: '+12%',
     changeType: 'positive' as const,
     icon: Users,
-    description: 'desde el mes pasado'
+    description: `${totalCustomers} clientes + ${totalVendors} proveedores`
   },
   {
     title: 'Proveedores Activos',
-    value: '89',
+    value: totalVendors.toString(),
     change: '+5%',
     changeType: 'positive' as const,
     icon: Store,
@@ -30,31 +42,31 @@ const dashboardStats = [
   },
   {
     title: 'Ventas del Mes',
-    value: 'RD$ 125,750',
+    value: `RD$ ${totalRevenue.toLocaleString()}`,
     change: '+18%',
     changeType: 'positive' as const,
     icon: DollarSign,
-    description: 'ingresos totales'
+    description: `${completedBookings.length} reservas completadas`
   },
   {
-    title: 'Pedidos Pendientes',
-    value: '47',
+    title: 'Reservas Pendientes',
+    value: pendingBookings.toString(),
     change: '-8%',
     changeType: 'negative' as const,
     icon: Package,
-    description: 'por procesar'
+    description: 'por confirmar'
   },
   {
-    title: 'Productos Populares',
-    value: '156',
+    title: 'Servicios Populares',
+    value: popularServices.toString(),
     change: '+23%',
     changeType: 'positive' as const,
     icon: TrendingUp,
-    description: 'más solicitados'
+    description: `de ${totalServices} servicios totales`
   },
   {
     title: 'Nuevos Registros Hoy',
-    value: '24',
+    value: '12',
     change: '+4',
     changeType: 'positive' as const,
     icon: UserPlus,
@@ -122,25 +134,22 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {[
-                { name: 'María González', email: 'maria@email.com', time: 'hace 2 horas' },
-                { name: 'Ana Martínez', email: 'ana@email.com', time: 'hace 4 horas' },
-                { name: 'Carmen López', email: 'carmen@email.com', time: 'hace 6 horas' },
-                { name: 'Sofia Rodríguez', email: 'sofia@email.com', time: 'ayer' }
-              ].map((user, index) => (
-                <div key={index} className="flex items-center justify-between">
+              {mockData.customerProfiles.slice(-4).map((customer, index) => (
+                <div key={customer.id} className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-femfuel-purple rounded-full flex items-center justify-center">
                       <span className="text-xs font-medium text-femfuel-rose">
-                        {user.name.split(' ').map(n => n[0]).join('')}
+                        {customer.user.name.split(' ').map(n => n[0]).join('')}
                       </span>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-femfuel-dark">{user.name}</p>
-                      <p className="text-xs text-femfuel-medium">{user.email}</p>
+                      <p className="text-sm font-medium text-femfuel-dark">{customer.user.name}</p>
+                      <p className="text-xs text-femfuel-medium">{customer.user.email}</p>
                     </div>
                   </div>
-                  <span className="text-xs text-femfuel-medium">{user.time}</span>
+                  <span className="text-xs text-femfuel-medium">
+                    {index === 0 ? 'hace 2 horas' : index === 1 ? 'hace 4 horas' : index === 2 ? 'hace 6 horas' : 'ayer'}
+                  </span>
                 </div>
               ))}
             </div>
@@ -154,28 +163,25 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {[
-                { name: 'Beauty Studio Rosa', type: 'Salón de Belleza', city: 'Santo Domingo', status: 'Activo' },
-                { name: 'Spa Relax Total', type: 'Spa', city: 'Santiago', status: 'Pendiente' },
-                { name: 'Barbería El Corte', type: 'Barbería', city: 'La Romana', status: 'Activo' },
-                { name: 'Nails Art Studio', type: 'Uñas', city: 'Puerto Plata', status: 'Activo' }
-              ].map((provider, index) => (
-                <div key={index} className="flex items-center justify-between">
+              {mockData.vendorProfiles.slice(-4).map((vendor, index) => (
+                <div key={vendor.id} className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-femfuel-gold/20 rounded-full flex items-center justify-center">
                       <Store className="h-4 w-4 text-femfuel-gold" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-femfuel-dark">{provider.name}</p>
-                      <p className="text-xs text-femfuel-medium">{provider.type} • {provider.city}</p>
+                      <p className="text-sm font-medium text-femfuel-dark">{vendor.businessName}</p>
+                      <p className="text-xs text-femfuel-medium">
+                        {vendor.categories[0]} • {vendor.location.city}
+                      </p>
                     </div>
                   </div>
                   <span className={`text-xs px-2 py-1 rounded-full ${
-                    provider.status === 'Activo' 
+                    vendor.isActive && vendor.isVerified
                       ? 'bg-green-100 text-green-800' 
                       : 'bg-yellow-100 text-yellow-800'
                   }`}>
-                    {provider.status}
+                    {vendor.isActive && vendor.isVerified ? 'Activo' : 'Pendiente'}
                   </span>
                 </div>
               ))}

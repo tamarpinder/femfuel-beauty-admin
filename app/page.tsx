@@ -38,10 +38,13 @@ export default function LoginPage() {
       }
 
       // TODO: Implement actual admin authentication
+      // LIVE INTEGRATION DISABLED - Using mock authentication for demo
       setTimeout(() => {
         setIsLoading(false);
-        console.log('Admin login attempt:', { email, password });
-        // Redirect to dashboard on successful login
+        console.log('Admin login attempt (MOCK MODE):', { email, password });
+        // Mock authentication - always successful for demo
+        // TODO: Replace with real authentication API call
+        // const response = await fetch('/api/auth/admin-login', { method: 'POST', body: JSON.stringify({ email, password }) });
         window.location.href = '/dashboard';
       }, 1000);
     } catch (error: unknown) {
@@ -58,7 +61,11 @@ export default function LoginPage() {
     setIsLoading(true);
     try {
       await new Promise((resolve) => setTimeout(resolve, 800));
+      // LIVE INTEGRATION DISABLED - Social login disabled for demo
       // TODO: Implement social login for admin
+      // const response = await signInWithGoogle('admin-role');
+      console.log('Social login (MOCK MODE) - redirecting to dashboard');
+      window.location.href = '/dashboard';
     } catch {
       // Handle social login error silently
     } finally {

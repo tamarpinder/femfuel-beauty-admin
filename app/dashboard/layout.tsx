@@ -98,15 +98,12 @@ export default function DashboardLayout({
               <p className="text-sm font-medium text-femfuel-dark">Administrador</p>
               <p className="text-xs text-femfuel-medium">admin@femfuel.com</p>
             </div>
-            <Button
+            <button
               onClick={handleLogout}
-              variant="outline"
-              size="sm"
-              className="gap-2"
+              className="relative p-3 rounded-full backdrop-blur-md bg-white/20 border border-white/30 shadow-lg hover:bg-femfuel-rose/20 hover:border-femfuel-rose/50 transition-all duration-300 group"
             >
-              <LogOut className="h-4 w-4" />
-              <span className="hidden sm:inline">Cerrar Sesión</span>
-            </Button>
+              <LogOut className="h-5 w-5 text-femfuel-dark group-hover:text-femfuel-rose transition-colors duration-300" />
+            </button>
           </div>
         </div>
       </header>

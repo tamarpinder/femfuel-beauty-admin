@@ -16,30 +16,34 @@ import {
   Phone,
   MapPin
 } from 'lucide-react';
-import { mockUsers, getUserById, getBookingsByUserId, type User } from '@/lib/mockData';
+import { mockData } from '@/data/shared/mock-data';
 
 export default function UsuariosPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('Todos');
-  const [selectedUser, setSelectedUser] = useState<User | null>(null);
+  const [selectedUser, setSelectedUser] = useState<any>(null);
+
+  const customers = mockData.customerProfiles;
 
   const filteredUsers = useMemo(() => {
-    return mockUsers.filter(user => {
+    return customers.filter(customer => {
       const matchesSearch = 
-        user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        user.city.toLowerCase().includes(searchTerm.toLowerCase());
+        customer.user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        customer.user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        customer.preferences.location.city.toLowerCase().includes(searchTerm.toLowerCase());
       
-      const matchesStatus = statusFilter === 'Todos' || user.status === statusFilter;
+      const matchesStatus = statusFilter === 'Todos' || 
+        (statusFilter === 'Activo' && customer.totalBookings > 0) ||
+        (statusFilter === 'Inactivo' && customer.totalBookings === 0);
       
       return matchesSearch && matchesStatus;
     });
   }, [searchTerm, statusFilter]);
 
-  const totalUsers = mockUsers.length;
-  const activeUsers = mockUsers.filter(u => u.status === 'Activo').length;
-  const suspendedUsers = mockUsers.filter(u => u.status === 'Suspendido').length;
-  const totalRevenue = mockUsers.reduce((sum, user) => sum + user.totalSpent, 0);
+  const totalUsers = customers.length;
+  const activeUsers = customers.filter(c => c.totalBookings > 0).length;
+  const suspendedUsers = 0; // No suspended users in our data
+  const totalRevenue = customers.reduce((sum, customer) => sum + customer.totalSpent, 0);
 
   const handleUserAction = (userId: string, action: 'suspend' | 'activate') => {
     // In a real app, this would make an API call
@@ -161,9 +165,9 @@ export default function UsuariosPage() {
                 onChange={(e) => setStatusFilter(e.target.value)}
                 className="px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-femfuel-rose"
               >
-                <option value="Todos">Todos los estados</option>
-                <option value="Activo">Activos</option>
-                <option value="Suspendido">Suspendidos</option>
+                <option value="Todos">Todos los usuarios</option>
+                <option value="Activo">Activos (con reservas)</option>
+                <option value="Inactivo">Inactivos (sin reservas)</option>
               </select>
               <Button variant="outline" className="gap-2">
                 <Filter className="h-4 w-4" />
@@ -186,50 +190,50 @@ export default function UsuariosPage() {
                 </tr>
               </thead>
               <tbody>
-                {filteredUsers.map((user) => (
-                  <tr key={user.id} className="border-b border-gray-100 hover:bg-gray-50">
+                {filteredUsers.map((customer) => (
+                  <tr key={customer.id} className="border-b border-gray-100 hover:bg-gray-50">
                     <td className="py-4 px-4">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 bg-femfuel-purple rounded-full flex items-center justify-center">
                           <span className="text-sm font-medium text-femfuel-rose">
-                            {user.name.split(' ').map(n => n[0]).join('')}
+                            {customer.user.name.split(' ').map(n => n[0]).join('')}
                           </span>
                         </div>
                         <div>
-                          <p className="font-medium text-femfuel-dark">{user.name}</p>
-                          <p className="text-sm text-femfuel-medium">{user.email}</p>
+                          <p className="font-medium text-femfuel-dark">{customer.user.name}</p>
+                          <p className="text-sm text-femfuel-medium">{customer.user.email}</p>
                         </div>
                       </div>
                     </td>
                     <td className="py-4 px-4">
                       <div className="flex items-center gap-2 text-sm text-femfuel-medium">
                         <Phone className="h-4 w-4" />
-                        {user.phone}
+                        {customer.user.phone}
                       </div>
                     </td>
                     <td className="py-4 px-4">
                       <div className="flex items-center gap-2 text-sm text-femfuel-medium">
                         <MapPin className="h-4 w-4" />
-                        {user.city}
+                        {customer.preferences.location.city}
                       </div>
                     </td>
                     <td className="py-4 px-4">
                       <div className="space-y-1">
                         <p className="text-sm text-femfuel-medium">
-                          {user.totalBookings} citas
+                          {customer.totalBookings} citas
                         </p>
                         <p className="text-sm font-medium text-femfuel-dark">
-                          {formatCurrency(user.totalSpent)}
+                          {formatCurrency(customer.totalSpent)}
                         </p>
                       </div>
                     </td>
                     <td className="py-4 px-4">
                       <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                        user.status === 'Activo' 
+                        customer.totalBookings > 0
                           ? 'bg-green-100 text-green-800' 
-                          : 'bg-red-100 text-red-800'
+                          : 'bg-gray-100 text-gray-800'
                       }`}>
-                        {user.status}
+                        {customer.totalBookings > 0 ? 'Activo' : 'Inactivo'}
                       </span>
                     </td>
                     <td className="py-4 px-4">
@@ -237,7 +241,7 @@ export default function UsuariosPage() {
                         <Button
                           variant="outline"
                           size="sm"
-                          onClick={() => setSelectedUser(user)}
+                          onClick={() => setSelectedUser(customer)}
                           className="gap-1"
                         >
                           <Eye className="h-3 w-3" />
@@ -246,24 +250,11 @@ export default function UsuariosPage() {
                         <Button
                           variant="outline"
                           size="sm"
-                          onClick={() => handleUserAction(user.id, user.status === 'Activo' ? 'suspend' : 'activate')}
-                          className={`gap-1 ${
-                            user.status === 'Activo' 
-                              ? 'text-red-600 hover:bg-red-50 border-red-200' 
-                              : 'text-green-600 hover:bg-green-50 border-green-200'
-                          }`}
+                          onClick={() => handleUserAction(customer.id, customer.totalBookings > 0 ? 'suspend' : 'activate')}
+                          className="gap-1 text-blue-600 hover:bg-blue-50 border-blue-200"
                         >
-                          {user.status === 'Activo' ? (
-                            <>
-                              <Ban className="h-3 w-3" />
-                              Suspender
-                            </>
-                          ) : (
-                            <>
-                              <CheckCircle className="h-3 w-3" />
-                              Activar
-                            </>
-                          )}
+                          <CheckCircle className="h-3 w-3" />
+                          Gestionar
                         </Button>
                       </div>
                     </td>
@@ -306,23 +297,25 @@ export default function UsuariosPage() {
             
             <div className="space-y-4">
               <div>
-                <h4 className="font-medium text-femfuel-dark mb-2">{selectedUser.name}</h4>
+                <h4 className="font-medium text-femfuel-dark mb-2">{selectedUser.user.name}</h4>
                 <div className="space-y-2 text-sm text-femfuel-medium">
-                  <p><strong>Email:</strong> {selectedUser.email}</p>
-                  <p><strong>Teléfono:</strong> {selectedUser.phone}</p>
-                  <p><strong>Ciudad:</strong> {selectedUser.city}</p>
-                  <p><strong>Fecha de registro:</strong> {formatDate(selectedUser.joinDate)}</p>
+                  <p><strong>Email:</strong> {selectedUser.user.email}</p>
+                  <p><strong>Teléfono:</strong> {selectedUser.user.phone}</p>
+                  <p><strong>Ciudad:</strong> {selectedUser.preferences.location.city}</p>
+                  <p><strong>Distrito:</strong> {selectedUser.preferences.location.district}</p>
+                  <p><strong>Fecha de registro:</strong> {formatDate(selectedUser.createdAt)}</p>
                   <p><strong>Total de citas:</strong> {selectedUser.totalBookings}</p>
                   <p><strong>Total gastado:</strong> {formatCurrency(selectedUser.totalSpent)}</p>
+                  <p><strong>Nivel de lealtad:</strong> {selectedUser.loyaltyLevel}</p>
                 </div>
               </div>
               
               <div>
-                <h5 className="font-medium text-femfuel-dark mb-2">Servicios Preferidos</h5>
+                <h5 className="font-medium text-femfuel-dark mb-2">Categorías Preferidas</h5>
                 <div className="flex flex-wrap gap-1">
-                  {selectedUser.preferredServices.map((service, index) => (
+                  {selectedUser.preferences.categories.map((category, index) => (
                     <span key={index} className="px-2 py-1 bg-femfuel-purple text-femfuel-rose text-xs rounded-full">
-                      {service}
+                      {category}
                     </span>
                   ))}
                 </div>
