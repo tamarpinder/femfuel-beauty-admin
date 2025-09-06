@@ -49,25 +49,29 @@ export default function AdminLoginPage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Animated Background Gradient */}
-      <div className="absolute inset-0 femfuel-gradient opacity-10"></div>
+      {/* REVOLUTIONARY ANIMATED MESH BACKGROUND */}
+      <div className="absolute inset-0 mesh-gradient-animated"></div>
+      <div className="absolute inset-0 ultra-gradient-3d opacity-70"></div>
       
-      {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03]"></div>
+      {/* Dynamic Grid Pattern with Animation */}
+      <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.05] animate-pulse"></div>
       
       <div className="relative flex flex-col lg:flex-row min-h-screen">
-        {/* Left Side - Ultra Professional Admin Branding */}
+        {/* Left Side - ULTRA-REVOLUTIONARY Admin Branding */}
         <div className="lg:w-1/2 relative overflow-hidden">
-          {/* Multi-layer Gradient Background */}
-          <div className="absolute inset-0 femfuel-gradient"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
           
-          {/* Floating Shapes for Visual Interest */}
-          <div className="absolute top-20 left-10 w-72 h-72 bg-white/10 rounded-full blur-3xl float-animation"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-femfuel-gold/20 rounded-full blur-3xl float-animation" style={{animationDelay: '3s'}}></div>
+          {/* Morphing Gradient Layers */}
+          <div className="absolute inset-0 mesh-gradient-animated"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/20"></div>
+          
+          {/* FLOATING 3D ELEMENTS */}
+          <div className="absolute top-10 left-10 w-80 h-80 bg-white/5 rounded-full blur-3xl float-animation opacity-60"></div>
+          <div className="absolute top-40 right-20 w-60 h-60 bg-femfuel-gold/10 rounded-full blur-3xl float-animation opacity-40" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-10 left-20 w-96 h-96 bg-femfuel-rose/8 rounded-full blur-3xl float-animation opacity-50" style={{animationDelay: '4s'}}></div>
+          <div className="absolute bottom-40 right-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl float-animation opacity-30" style={{animationDelay: '6s'}}></div>
           
           <div className="relative z-10 h-full p-8 lg:p-12 flex items-center justify-center">
-            <div className="text-white text-center lg:text-left max-w-md">
+            <div className="text-white text-center lg:text-left max-w-md reveal-up">
               <div className="mb-8">
                 {/* Logo with Glow Effect */}
                 <div className="relative inline-block mb-6">
@@ -81,43 +85,43 @@ export default function AdminLoginPage() {
                   />
                 </div>
                 
-                <h1 className="text-4xl lg:text-5xl font-bold mb-4 drop-shadow-2xl">
+                <h1 className="text-4xl lg:text-6xl font-black mb-6 drop-shadow-2xl reveal-up typewriter">
                   FemFuel Beauty
                 </h1>
-                <div className="h-1 w-24 bg-gradient-to-r from-white to-femfuel-gold mb-4 mx-auto lg:mx-0"></div>
-                <p className="text-2xl font-light mb-2 drop-shadow-lg">
+                <div className="h-1.5 w-32 bg-gradient-to-r from-white via-femfuel-gold to-white mb-6 mx-auto lg:mx-0 reveal-up animate-pulse"></div>
+                <p className="text-2xl lg:text-3xl font-light mb-3 drop-shadow-lg reveal-up">
                   Panel de Administración
                 </p>
-                <p className="text-lg opacity-90 leading-relaxed">
-                  Centro de control empresarial para la revolución de la belleza dominicana
+                <p className="text-lg lg:text-xl opacity-95 leading-relaxed reveal-up">
+                  🚀 Centro de control empresarial para la revolución de la belleza dominicana
                 </p>
               </div>
 
-              {/* Admin Features with Glass Cards */}
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 transition-all duration-300">
-                  <div className="w-10 h-10 bg-gradient-to-br from-white/30 to-white/10 rounded-lg flex items-center justify-center shadow-lg">
-                    <Users className="w-5 h-5 text-white drop-shadow" />
+              {/* REVOLUTIONARY Admin Features with Ultra Glass Cards */}
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center gap-4 p-4 rounded-xl glass-premium hover:bg-white/20 transition-all duration-500 ripple-effect reveal-up">
+                  <div className="w-12 h-12 bg-gradient-to-br from-white/40 to-white/10 rounded-xl flex items-center justify-center shadow-2xl pulse-glow">
+                    <Users className="w-6 h-6 text-white drop-shadow-lg" />
                   </div>
-                  <span className="text-sm font-medium">Gestión completa de usuarios y proveedores</span>
+                  <span className="text-sm font-semibold tracking-wide">✨ Gestión completa de usuarios y proveedores</span>
                 </div>
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 transition-all duration-300">
-                  <div className="w-10 h-10 bg-gradient-to-br from-white/30 to-white/10 rounded-lg flex items-center justify-center shadow-lg">
-                    <BarChart3 className="w-5 h-5 text-white drop-shadow" />
+                <div className="flex items-center gap-4 p-4 rounded-xl glass-premium hover:bg-white/20 transition-all duration-500 ripple-effect reveal-up">
+                  <div className="w-12 h-12 bg-gradient-to-br from-white/40 to-white/10 rounded-xl flex items-center justify-center shadow-2xl pulse-glow">
+                    <BarChart3 className="w-6 h-6 text-white drop-shadow-lg" />
                   </div>
-                  <span className="text-sm font-medium">Análisis avanzado y reportes en tiempo real</span>
+                  <span className="text-sm font-semibold tracking-wide">📊 Análisis avanzado y reportes en tiempo real</span>
                 </div>
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 transition-all duration-300">
-                  <div className="w-10 h-10 bg-gradient-to-br from-white/30 to-white/10 rounded-lg flex items-center justify-center shadow-lg">
-                    <Settings className="w-5 h-5 text-white drop-shadow" />
+                <div className="flex items-center gap-4 p-4 rounded-xl glass-premium hover:bg-white/20 transition-all duration-500 ripple-effect reveal-up">
+                  <div className="w-12 h-12 bg-gradient-to-br from-white/40 to-white/10 rounded-xl flex items-center justify-center shadow-2xl pulse-glow">
+                    <Settings className="w-6 h-6 text-white drop-shadow-lg" />
                   </div>
-                  <span className="text-sm font-medium">Control total de la plataforma</span>
+                  <span className="text-sm font-semibold tracking-wide">⚙️ Control total de la plataforma</span>
                 </div>
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 transition-all duration-300">
-                  <div className="w-10 h-10 bg-gradient-to-br from-white/30 to-white/10 rounded-lg flex items-center justify-center shadow-lg">
-                    <Shield className="w-5 h-5 text-white drop-shadow" />
+                <div className="flex items-center gap-4 p-4 rounded-xl glass-premium hover:bg-white/20 transition-all duration-500 ripple-effect reveal-up">
+                  <div className="w-12 h-12 bg-gradient-to-br from-white/40 to-white/10 rounded-xl flex items-center justify-center shadow-2xl pulse-glow">
+                    <Shield className="w-6 h-6 text-white drop-shadow-lg" />
                   </div>
-                  <span className="text-sm font-medium">Seguridad empresarial de nivel superior</span>
+                  <span className="text-sm font-semibold tracking-wide">🛡️ Seguridad empresarial de nivel superior</span>
                 </div>
               </div>
 
@@ -140,13 +144,19 @@ export default function AdminLoginPage() {
           </div>
         </div>
 
-        {/* Right Side - Ultra Professional Login Form */}
-        <div className="lg:w-1/2 bg-gradient-to-br from-gray-50 to-white p-8 lg:p-12 flex items-center justify-center relative">
-          {/* Decorative Elements */}
-          <div className="absolute top-0 right-0 w-40 h-40 bg-femfuel-rose/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-60 h-60 bg-femfuel-gold/5 rounded-full blur-3xl"></div>
+        {/* Right Side - REVOLUTIONARY 3D FLOATING LOGIN FORM */}
+        <div className="lg:w-1/2 relative overflow-hidden p-8 lg:p-12 flex items-center justify-center card-3d">
+          {/* ULTRA-PREMIUM Background with Multiple Layers */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100"></div>
+          <div className="absolute inset-0 mesh-gradient-animated opacity-5"></div>
           
-          <div className="w-full max-w-md relative z-10">
+          {/* Floating Decorative Elements */}
+          <div className="absolute top-10 right-10 w-60 h-60 bg-femfuel-rose/8 rounded-full blur-3xl float-animation opacity-70"></div>
+          <div className="absolute bottom-20 left-10 w-80 h-80 bg-femfuel-gold/6 rounded-full blur-3xl float-animation opacity-60" style={{animationDelay: '3s'}}></div>
+          <div className="absolute top-40 left-1/3 w-40 h-40 bg-purple-500/5 rounded-full blur-3xl float-animation opacity-50" style={{animationDelay: '5s'}}></div>
+          
+          {/* FLOATING 3D FORM CONTAINER */}
+          <div className="w-full max-w-lg relative z-20 card-floating glass-ultra rounded-3xl p-8 lg:p-10">
             {/* Mobile Logo */}
             <div className="lg:hidden text-center mb-8">
               <div className="relative inline-block mb-4">
@@ -163,23 +173,25 @@ export default function AdminLoginPage() {
               <p className="text-femfuel-medium">Panel Administrativo</p>
             </div>
             
-            {/* Desktop Form Header with Premium Logo */}
-            <div className="hidden lg:block mb-10 text-center">
-              <div className="relative inline-block mb-6">
-                <div className="absolute inset-0 bg-gradient-to-r from-femfuel-rose/30 to-femfuel-gold/30 rounded-full blur-2xl pulse-glow"></div>
+            {/* REVOLUTIONARY Desktop Form Header */}
+            <div className="hidden lg:block mb-12 text-center reveal-up">
+              <div className="relative inline-block mb-8">
+                <div className="absolute inset-0 bg-gradient-to-r from-femfuel-rose/40 to-femfuel-gold/40 rounded-full blur-3xl pulse-glow"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-2xl animate-pulse"></div>
                 <Image 
                   src="/femfuel-logo.png" 
                   alt="FemFuel Beauty" 
-                  width={120}
-                  height={120}
-                  className="w-[120px] h-[120px] mx-auto relative z-10 hover:scale-110 transition-transform duration-500"
+                  width={140}
+                  height={140}
+                  className="w-[140px] h-[140px] mx-auto relative z-10 hover:scale-125 hover:rotate-12 transition-all duration-700 drop-shadow-2xl"
                 />
               </div>
-              <h2 className="text-4xl font-bold bg-gradient-to-r from-femfuel-rose to-femfuel-gold bg-clip-text text-transparent mb-3">
+              <h2 className="text-5xl font-black bg-gradient-to-r from-femfuel-rose via-purple-600 to-femfuel-gold bg-clip-text text-transparent mb-4 typewriter">
                 Acceso Administrativo
               </h2>
-              <p className="text-femfuel-medium text-lg">
-                Centro de control empresarial exclusivo
+              <div className="h-1 w-40 bg-gradient-to-r from-femfuel-rose to-femfuel-gold mx-auto mb-4 reveal-up animate-pulse"></div>
+              <p className="text-gray-700 text-xl font-medium reveal-up">
+                🌟 Centro de control empresarial exclusivo
               </p>
             </div>
 
@@ -190,70 +202,74 @@ export default function AdminLoginPage() {
               </div>
             )}
 
-            {/* Ultra Professional Admin Access Form */}
-            <form onSubmit={handleSubmit} className="space-y-7">
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-sm font-semibold text-gray-700 uppercase tracking-wider">
+            {/* REVOLUTIONARY LIQUID FORM */}
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="space-y-3 reveal-up">
+                <Label htmlFor="email" className="text-sm font-bold text-gray-800 uppercase tracking-widest flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-femfuel-rose" />
                   Correo Administrativo
                 </Label>
                 <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-femfuel-rose to-femfuel-gold rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                  <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5 group-hover:text-femfuel-rose transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-femfuel-rose/20 to-femfuel-gold/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl"></div>
+                  <Mail className="absolute left-5 top-1/2 transform -translate-y-1/2 text-gray-400 h-6 w-6 group-hover:text-femfuel-rose transition-all duration-300 z-10" />
                   <Input
                     id="email"
                     type="email"
                     placeholder="admin@femfuelbeauty.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="pl-12 pr-4 h-14 text-lg bg-white/80 backdrop-blur-sm border-2 border-gray-200 rounded-xl focus:border-femfuel-rose focus:ring-4 focus:ring-femfuel-rose/20 transition-all duration-300 hover:border-gray-300"
+                    className="input-liquid pl-14 pr-4 h-16 text-lg font-medium placeholder:text-gray-400 z-10 relative"
                     required
                   />
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="password" className="text-sm font-semibold text-gray-700 uppercase tracking-wider">
-                  Contraseña Segura
+              <div className="space-y-3 reveal-up">
+                <Label htmlFor="password" className="text-sm font-bold text-gray-800 uppercase tracking-widest flex items-center gap-2">
+                  <Lock className="w-4 h-4 text-femfuel-rose" />
+                  Contraseña Ultra-Segura
                 </Label>
                 <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-femfuel-rose to-femfuel-gold rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                  <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5 group-hover:text-femfuel-rose transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-femfuel-rose/20 to-femfuel-gold/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl"></div>
+                  <Lock className="absolute left-5 top-1/2 transform -translate-y-1/2 text-gray-400 h-6 w-6 group-hover:text-femfuel-rose transition-all duration-300 z-10" />
                   <Input
                     id="password"
                     type={showPassword ? 'text' : 'password'}
-                    placeholder="••••••••••••"
+                    placeholder="••••••••••••••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="pl-12 pr-12 h-14 text-lg bg-white/80 backdrop-blur-sm border-2 border-gray-200 rounded-xl focus:border-femfuel-rose focus:ring-4 focus:ring-femfuel-rose/20 transition-all duration-300 hover:border-gray-300"
+                    className="input-liquid pl-14 pr-14 h-16 text-lg font-medium placeholder:text-gray-400 z-10 relative"
                     required
                   />
                   <button
                     type="button"
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-femfuel-rose transition-colors duration-300 p-1"
+                    className="absolute right-5 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-femfuel-rose transition-all duration-300 p-2 z-10 ripple-effect rounded-full"
                     onClick={() => setShowPassword(!showPassword)}
                   >
-                    {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                    {showPassword ? <EyeOff className="h-6 w-6" /> : <Eye className="h-6 w-6" />}
                   </button>
                 </div>
               </div>
 
-              <Button
-                type="submit"
-                className="w-full h-14 bg-gradient-to-r from-femfuel-rose to-pink-600 hover:from-pink-600 hover:to-femfuel-rose text-white font-bold text-lg rounded-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5 transition-all duration-300"
-                disabled={isLoading}
-              >
-                {isLoading ? (
-                  <div className="flex items-center gap-3">
-                    <div className="w-5 h-5 border-3 border-white border-t-transparent rounded-full animate-spin"></div>
-                    <span className="animate-pulse">Verificando Credenciales...</span>
-                  </div>
-                ) : (
-                  <div className="flex items-center justify-center gap-3">
-                    <Shield className="w-5 h-5" />
-                    <span>Acceder al Centro de Control</span>
-                  </div>
-                )}
-              </Button>
+              <div className="pt-4 reveal-up">
+                <button
+                  type="submit"
+                  className="btn-neon w-full h-16 text-xl font-black tracking-wide ripple-effect reveal-up"
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <div className="flex items-center justify-center gap-4">
+                      <div className="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                      <span className="animate-pulse">🚀 Verificando Acceso Ultrasecreto...</span>
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-center gap-3">
+                      <Shield className="w-6 h-6" />
+                      <span>🌟 ACCEDER AL CENTRO DE CONTROL</span>
+                    </div>
+                  )}
+                </button>
+              </div>
             </form>
 
             {/* Premium Security Notice */}
