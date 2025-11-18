@@ -1,4 +1,4 @@
-# FemFuel Beauty - Panel de Administración 
+# FemFuel Beauty - Panel de Administración
 
 Panel de administración para la plataforma FemFuel Beauty, desarrollado con Next.js 15 y Supabase.
 
